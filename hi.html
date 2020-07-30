@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+
+        <form id="app" v-on:submit.prevent="check" method="GET">
+            <p>
+                <label for="location">City:</label>
+                <input type="text" id="test" name="test">
+                <input type="submit" value="Submit">
+                <br></br>
+                Temperature: {{ this.temp }}
+            </p>
+        </form>
+        
+        <script>
+            Vue.config.devtools = true;
+            var app = new Vue({
+            el: '#app',
+            data: {
+                temp: '',
+            },
+            methods: {
+                getTemperature: function(location) {
+                    check = location.data
+                    console.log('check is ' + check)
+                    console.log('location is ' + location)
+                    location = 'St. Paul'
+                    console.log('location is ' + location)
+                    let tempApi = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;                
+                    fetch(tempApi)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data['main']['temp'])
+                            this.temp = data['main']['temp'];
+                            console.log('temp is ' + this.temp)
+                        })
+                        .catch(function(error) {
+                            console.log(error)
+                        })
+                },
+                check(test) {
+                    console.log(test)
+                }
+            }
+        });
+        </script>
+    </body>
+</html>

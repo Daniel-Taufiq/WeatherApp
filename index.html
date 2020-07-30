@@ -1,0 +1,19 @@
+    <html>
+        <head>
+            <link rel="stylesheet" href="index.css">
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        </head>
+        <body>
+            <form id="app" v-on:submit.prevent="getTemperature" method="GET">
+                <p>
+                    <label for="tempHold">City:</label>
+                    <input type="text" name="tempHold">
+                    <input type="submit" value="Submit">
+                    <br></br>
+                    Temperature: {{ this.temp }}
+                    
+                </p>
+            </form>
+            <script src="app.js"></script>
+        </body>
+    </html>
