@@ -7,11 +7,12 @@
             <form id="app" v-on:submit.prevent="getTemperature" method="GET">
                 <p>
                     <label for="tempHold">City:</label>
-                    <input type="text" name="tempHold">
+                    <input type="text" name="tempHold">                   
                     <input type="submit" value="Submit">
+                    <!-- <button v-on:click="todo">F</button>                  
+                    <button v-on:click="todo">C</button> -->
                     <br></br>
                     Temperature: {{ this.temp }}
-                    
                 </p>
             </form>
             <script src="app.js"></script>
