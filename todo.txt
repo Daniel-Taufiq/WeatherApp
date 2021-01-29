@@ -1,8 +1,0 @@
-# current task:
-    text box to enter city and display that city/country's temperatureon web page
-
-
-connect mongdb and capture highest record temps and have a
-section on the page displaying record temperature
-
-create a temperature gauge (therometer) visual that changes based on temperature
