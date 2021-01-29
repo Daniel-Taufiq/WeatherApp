@@ -7,6 +7,9 @@ const path = require('path');
 const app = express();
 const port = 8000;
 
+//app.use('/static', express.static('./static/'))
+app.use(express.static(__dirname + '/static'));
+app.use('/static', express.static(__dirname + '/static'))
 app.use(bodyParser.json());
 app.use(express.urlencoded( { extended: true }));
 
@@ -14,6 +17,16 @@ app.use(express.urlencoded( { extended: true }));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/index.html'))
 })
+
+app.get('/app.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '/app.js'))
+})
+
+app.get('/index.css', (req, res) => {
+    res.sendFile(path.join(__dirname, '/index.css'))
+})
+
+
 //localhost:8000/users/23/books/3422
 app.get('/users/:userId/books/:bookId', function(req, res) {
     res.send(req.params)

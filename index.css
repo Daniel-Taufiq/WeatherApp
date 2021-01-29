@@ -1,4 +1,48 @@
+@font-face {
+    font-family: "Snowkybrush";
+    src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
+    }
+
 html, body {
     margin: 5px;
     padding: 0;
+}
+/* .units {
+    display: inline-block;
+} */
+ul {
+    list-style-type:none;
+}
+li span {
+    display:inline-block;
+}
+
+.row {
+    row-gap: 20%;
+    /* row-gap: 10rem; */
+}
+
+#temps {
+    position: relative;
+    top: 80px;
+    left: 10%;
+    font-size: 50;
+}
+
+#cityName {
+    position: relative;
+    top: 150px;
+    text-align: center;
+    /* vertical-align: middle; */
+    font-size: 60;
+}
+
+.box {
+    height: 600px;
+    width: 400px;
+    background-color: rgb(165, 165, 165);
+    border-radius: 30px;
+    position: relative;
+    border: 2px solid black;
+    top: 22%;
 }

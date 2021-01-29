@@ -1,20 +1,68 @@
-    <html>
-        <head>
-            <link rel="stylesheet" href="index.css">
-            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        </head>
-        <body>
-            <form id="app" v-on:submit.prevent="getTemperature" method="GET">
-                <p>
-                    <label for="tempHold">City:</label>
-                    <input type="text" name="tempHold">                   
-                    <input type="submit" value="Submit">
-                    <!-- <button v-on:click="todo">F</button>                  
-                    <button v-on:click="todo">C</button> -->
-                    <br></br>
-                    Temperature: {{ this.temp }}
-                </p>
-            </form>
-            <script src="app.js"></script>
-        </body>
-    </html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        
+    </head>
+    <body>
+        <!-- <div id="app">
+            <ul id="temps">
+                <li v-for="value in cities1.items">
+                    <div v-if="value < 10">
+                        <p style="font-family: Snowkybrush">{{ value }}°F</p>
+                    </div>
+                    <div v-else>
+                        <p>{{ value }}°F</p>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
+        <div class="container">
+            <div id="app">
+                <div class="row">
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[0] }}°F </div>
+                            <div id="cityName">Minneapolis</div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[1] }}°F </div>
+                            <div id="cityName">Hong Kong</div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[2] }}°F </div>
+                            <div id="cityName">Instanbul</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[0] }}°F </div>
+                            <div id="cityName">London</div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[1] }}°F </div>
+                            <div id="cityName">Ulaanbaatar</div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[2] }}°F </div>
+                            <div id="cityName">Tokyo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <script src="app.js"></script>
+    </body>
+</html>
