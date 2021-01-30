@@ -1,10 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css" type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>       
     </head>
     <body>
         <!-- <div id="app">
@@ -19,50 +16,42 @@
                 </li>
             </ul>
         </div> -->
-        <div class="container">
-            <div id="app">
-                <div class="row">
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities1.items[0] }}°F </div>
-                            <div id="cityName">Minneapolis</div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities1.items[1] }}°F </div>
-                            <div id="cityName">Hong Kong</div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities1.items[2] }}°F </div>
-                            <div id="cityName">Instanbul</div>
-                        </div>
-                    </div>
+
+        <ul class="nav">
+            <li><a href="#home">Search</a></li>
+            <li><a href="#news">Map</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+
+        <div id="app">
+            <div class="grid-container">
+                <div class="box">
+                    <div id="temps"> {{ cities1.items[0] }}°F </div>
+                    <div id="cityName">Minneapolis</div>
                 </div>
-                <div class="row">
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities2.items[0] }}°F </div>
-                            <div id="cityName">London</div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities2.items[1] }}°F </div>
-                            <div id="cityName">Ulaanbaatar</div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="box">
-                            <div id="temps"> {{ cities2.items[2] }}°F </div>
-                            <div id="cityName">Tokyo</div>
-                        </div>
-                    </div>
+                <div class="box">
+                    <div id="temps"> {{ cities1.items[1] }}°F </div>
+                    <div id="cityName">Hong Kong</div>
+                </div>
+                <div class="box">
+                    <div id="temps"> {{ cities1.items[2] }}°F </div>
+                    <div id="cityName">Instanbul</div>
+                </div>
+                <div class="box">
+                    <div id="temps"> {{ cities2.items[0] }}°F </div>
+                    <div id="cityName">London</div>
+                </div>
+                <div class="box">
+                    <div id="temps"> {{ cities2.items[1] }}°F </div>
+                    <div id="cityName">Ulaanbaatar</div>
+                </div>
+                <div class="box">
+                    <div id="temps"> {{ cities2.items[2] }}°F </div>
+                    <div id="cityName">Tokyo</div>
                 </div>
             </div>
-        </div>   
+        </div>
+
         <script src="app.js"></script>
     </body>
 </html>

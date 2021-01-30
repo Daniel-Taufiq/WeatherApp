@@ -1,25 +1,73 @@
 @font-face {
     font-family: "Snowkybrush";
     src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
-    }
+}
 
-html, body {
-    margin: 5px;
-    padding: 0;
-}
-/* .units {
-    display: inline-block;
-} */
-ul {
-    list-style-type:none;
-}
-li span {
-    display:inline-block;
+body {
+    margin: 0;
 }
 
 .row {
     row-gap: 20%;
+    margin-bottom: 100px;
+    
     /* row-gap: 10rem; */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    column-gap: 10rem;
+    gap: 300px;
+    padding-left: 100px;
+    padding-right: 500px;
+    padding-top: 200px;
+    padding-bottom: 150px;
+    /* margin-top: 10px; */
+    background-color: lightblue;
+}
+
+/* .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+} */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    vertical-align: top;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+  
+.active {
+    background-color: #4CAF50;
 }
 
 #temps {
@@ -44,5 +92,6 @@ li span {
     border-radius: 30px;
     position: relative;
     border: 2px solid black;
-    top: 22%;
+    /* top: 22%; */
+    margin-left: 100px;
 }
