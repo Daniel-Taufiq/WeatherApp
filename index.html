@@ -1,7 +1,11 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="index.css" type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>       
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">       
     </head>
     <body>
         <!-- <div id="app">
@@ -16,12 +20,30 @@
                 </li>
             </ul>
         </div> -->
-
-        <ul class="nav">
-            <li><a href="#home">Search</a></li>
-            <li><a href="#news">Map</a></li>
-            <li style="float:right"><a class="active" href="#about">About</a></li>
-        </ul>
+        <nav>
+            <div class="logo">
+                <h4>Weather</h4>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Search</a>
+                </li>
+                <li>
+                    <a href="#">Map</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
 
         <div id="app">
             <div class="grid-container">
