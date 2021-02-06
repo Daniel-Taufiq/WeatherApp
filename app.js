@@ -23,7 +23,7 @@ var app = new Vue({
 
 async function getTemperature(location) {
     try {
-        const tempApi = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;    
+        const tempApi = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;    
         let data = await this.getData(tempApi)
         return data['main']['temp']
     } catch(err) {
@@ -45,6 +45,10 @@ async function getData(api) {
         return Promise.reject(new ResponseError('Invalid JSON: ' + error.message));
     };
 }
+
+
+
+
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');
