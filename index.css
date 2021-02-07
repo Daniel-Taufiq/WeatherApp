@@ -41,14 +41,39 @@ nav {
     font-family: 'Poppins', sans-serif;
     z-index: 2;
     position: relative;
-    -webkit-transform: translateZ(0)
+    -webkit-transform: translateZ(0);
+    animation: 1s ease-out 0s 1 slideInFromTop
 }
 
-.logo {
-    color: rgb(226, 226, 226);
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+.logo h4{
+    /* color: rgb(226, 226, 226); */
+    color: whitesmoke;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 20px;
+    -webkit-animation: logo 5s ease-in-out;
+    -webkit-animation-iteration-count: infinite; 
+}
+
+@-webkit-keyframes logo {
+    0% { 
+        opacity: 0.75;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.75;
+    }
 }
 
 .nav-links {
@@ -234,36 +259,60 @@ li a:hover:not(.active) {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 3s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
 }
 
 #icon2 {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 3.5s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 3.5s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
 }
 
 #icon3 {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 4s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
 }
 
 #icon4 {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 4.5s;
+    -moz-animation: fadein 4.5s; /* Firefox */
+    -webkit-animation: fadein 4.5s; /* Safari and Chrome */
+    -o-animation: fadein 4.5s; /* Opera */
 }
 
 #icon5 {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 5s;
+    -moz-animation: fadein 5s; /* Firefox */
+    -webkit-animation: fadein 5s; /* Safari and Chrome */
+    -o-animation: fadein 5s; /* Opera */
 }
 
 #icon6 {
     position: relative;
     top: 200px;
     left: 130px;
+    animation: fadein 5.5s;
+    -moz-animation: fadein 5.5s; /* Firefox */
+    -webkit-animation: fadein 5.5s; /* Safari and Chrome */
+    -o-animation: fadein 5.5s; /* Opera */
 }
 
 
@@ -278,4 +327,53 @@ li a:hover:not(.active) {
     /* top: 22%; */
     margin-left: 100px;
     z-index: 1;
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+}
+
+@keyframes fadein {
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

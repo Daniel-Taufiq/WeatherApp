@@ -20,7 +20,7 @@ var app = new Vue({
     },
     async mounted() {
         cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
-        cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
+        cities2 = [ 'London', 'Ulaanbaatar', 'Lahore']
         for(let i = 0; i < cities1.length; i++) {
             this.cities1.items.push(await getTemperature(cities1[i]));
             this.cities2.items.push(await getTemperature(cities2[i]));
@@ -71,6 +71,9 @@ async function getSVG(icon) {
     }
     else if(icon['description'] === 'snow') {
         return Skycons.SNOW
+    }
+    else if (icon['description'] == 'smoke') {
+        return Skycons.FOG
     }
 }
 async function getTemperature(location) {
