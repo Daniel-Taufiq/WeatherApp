@@ -97,7 +97,8 @@ nav {
         right: 0px;
         height: 92vh;
         top: 8vh;
-        background-color: #182D47;
+        /* background-color: #182D47; */
+        /* border: lightblue; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -227,6 +228,43 @@ li a:hover:not(.active) {
     font-size: 60;
     z-index: 1;
 }
+
+#icon1 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
+#icon2 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
+#icon3 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
+#icon4 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
+#icon5 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
+#icon6 {
+    position: relative;
+    top: 200px;
+    left: 130px;
+}
+
 
 .box {
     height: 600px;

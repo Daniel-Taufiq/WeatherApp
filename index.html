@@ -6,7 +6,8 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="index.css" type="text/css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">       
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>    
     </head>
     <body>
         <!-- <div id="app">
@@ -52,26 +53,32 @@
                     <div class="box">
                         <div id="temps"> {{ cities1.items[0] }}°F </div>
                         <div id="cityName">Minneapolis</div>
+                        <canvas id="icon1" width="128" height="128"></canvas>
                     </div>
                     <div class="box">
                         <div id="temps"> {{ cities1.items[1] }}°F </div>
                         <div id="cityName">Hong Kong</div>
+                        <canvas id="icon2" width="128" height="128"></canvas>
                     </div>
                     <div class="box">
                         <div id="temps"> {{ cities1.items[2] }}°F </div>
                         <div id="cityName">Instanbul</div>
+                        <canvas id="icon3" width="128" height="128"></canvas>
                     </div>
                     <div class="box">
                         <div id="temps"> {{ cities2.items[0] }}°F </div>
                         <div id="cityName">London</div>
+                        <canvas id="icon4" width="128" height="128"></canvas>
                     </div>
                     <div class="box">
                         <div id="temps"> {{ cities2.items[1] }}°F </div>
                         <div id="cityName">Ulaanbaatar</div>
+                        <canvas id="icon5" width="128" height="128"></canvas>
                     </div>
                     <div class="box">
                         <div id="temps"> {{ cities2.items[2] }}°F </div>
                         <div id="cityName">Tokyo</div>
+                        <canvas id="icon6" width="128" height="128"></canvas>
                     </div>
                 </div>
             </div>
@@ -84,6 +91,7 @@
         <script src="app.js"></script>
         <script src="skycons.js"></script>
         <script src="stars.js"></script>
+        <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
         <!-- <script src="particles.js"></script>
         <script src="particlesApp.js"></script> -->
     </body>
