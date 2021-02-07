@@ -48,19 +48,28 @@ var app = new Vue({
 async function getSVG(icon) {
     //https://openweathermap.org/weather-conditions
     //https://codepen.io/palimadra/pen/vfncA
-    if(icon === 'clear sky') {
-        return Skycons.CLEAR_DAY
+    if(icon['description'] === 'clear sky') {
+        if(icon['icon'] == '01d') {
+            return Skycons.CLEAR_DAY
+        } else {
+            return Skycons.CLEAR_NIGHT
+        }
     }
-    else if(icon === 'few clouds') {
-        return Skycons.PARTLY_CLOUDY_DAY
+    else if(icon['description'] === 'few clouds') {
+        if(icon['icon'] == '02d') {
+            return Skycons.PARTLY_CLOUDY_DAY
+        } else {
+            return Skycons.PARTLY_CLOUDY_NIGHT
+        }
     }
-    else if(icon === 'scattered clouds' || icon === 'broken clouds' || icon == 'overcast clouds') {
+    else if(icon['description'] === 'scattered clouds' || icon['description'] === 'broken clouds' || icon['description'] == 'overcast clouds') {
         return Skycons.CLOUDY
     }
-    else if(icon === 'shower rain' || icon === 'rain' || icon === 'thunderstorm' || icon == 'mist') {
+    else if(icon['description'] === 'shower rain' || icon['description'] === 'rain' || 
+            icon['description'] === 'thunderstorm' || icon['description'] == 'mist' || icon['description'] === 'moderate rain') {
         return Skycons.RAIN
     }
-    else if(icon === 'snow') {
+    else if(icon['description'] === 'snow') {
         return Skycons.SNOW
     }
 }
@@ -78,8 +87,8 @@ async function getIcons(location) {
     try {
         const tempApi = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;    
         let data = await this.getData(tempApi)
-        console.log(data['weather'][0]['main'])
-        return data['weather'][0]['description']
+        console.log(data['weather'][0])
+        return data['weather'][0]
     } catch(err) {
         console.log(err)
     }    
