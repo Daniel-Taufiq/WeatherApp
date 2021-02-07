@@ -41,6 +41,7 @@ nav {
     font-family: 'Poppins', sans-serif;
     z-index: 2;
     position: relative;
+    -webkit-transform: translateZ(0)
 }
 
 .logo {
