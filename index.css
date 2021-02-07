@@ -331,6 +331,7 @@ li a:hover:not(.active) {
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari and Chrome */
     -o-animation: fadein 1s; /* Opera */
+    -webkit-transform: translateZ(0);   /* fix random disapppearing */
 }
 
 @keyframes fadein {
