@@ -69,7 +69,7 @@ async function getSVG(icon) {
             icon['description'] === 'thunderstorm' || icon['description'] == 'mist' || icon['description'] === 'moderate rain') {
         return Skycons.RAIN
     }
-    else if(icon['description'] === 'snow') {
+    else if(icon['description'] === 'snow' || icon['description'] === 'light snow') {
         return Skycons.SNOW
     }
     else if (icon['description'] == 'smoke') {

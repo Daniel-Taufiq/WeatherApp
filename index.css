@@ -22,7 +22,7 @@
     grid-template-rows: repeat(auto-fit, 1fr);
     column-gap: 10rem;
     gap: 300px;
-    padding-left: 100px;
+    /* padding-left: 100px; */
     padding-right: 500px;
     padding-top: 200px;
     padding-bottom: 150px;
@@ -186,6 +186,14 @@ nav {
 }
 
 
+
+/* @media only screen and (max-width: 767px) {
+    html {
+       background-image: url(smaller-image.jpg);
+    }
+  } */
+
+
 /* ---- reset ---- */
 
 /* body {
@@ -323,16 +331,147 @@ li a:hover:not(.active) {
     background-color: whitesmoke;
     border-radius: 30px;
     position: relative;
+    cursor: pointer;
     border: 2px solid black;
     /* top: 22%; */
-    margin-left: 100px;
+    margin-left: 40%;
     z-index: 1;
     animation: fadein 1s;
     -moz-animation: fadein 1s; /* Firefox */
     -webkit-animation: fadein 1s; /* Safari and Chrome */
     -o-animation: fadein 1s; /* Opera */
     -webkit-transform: translateZ(0);   /* fix random disapppearing */
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
 }
+
+
+@media screen and (max-width:480px){
+    .box {
+        height: 390px;
+        width: 270px;
+        min-width: 90px;
+    }
+    #cityName {
+        font-size: 35;
+        top: 85px;
+        position: relative;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    #temps {
+        font-size: 35;
+        top: 50px;
+        
+    }
+    #icon1{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+    #icon2{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+    #icon3{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+    #icon4{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+    #icon5{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+    #icon6{
+        position: absolute;
+        top: 230px;
+        left: 80px;
+        height: 90px;
+        width: 90px;
+    }
+}
+
+@media screen and (max-width:352px){
+    .box {
+        height: 290px;
+        width: 190px;
+        margin-right: 20%;
+    }
+    #cityName {
+        font-size: 20;
+        top: 75px;
+        position: relative;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    #temps {
+        font-size: 20;
+        top: 50px;
+        
+    }
+    #icon1{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+    #icon2{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+    #icon3{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+    #icon4{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+    #icon5{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+    #icon6{
+        position: absolute;
+        top: 170px;
+        left: 50px;
+        height: 70px;
+        width: 70px;
+    }
+}
+
+
 
 @keyframes fadein {
     0% {
