@@ -15,7 +15,8 @@ var app = new Vue({
             items: []
         },
         temp: '',
-        loc: ''
+        loc: '',
+        city: ''
 
     },
     async mounted() {
@@ -41,6 +42,18 @@ var app = new Vue({
                 // console.log(`set icon${3+i} using`, this.icons2.items[i-1])
             }
             skycons.play()
+        },
+        async searchCityTemp(location) {
+            try {
+                location = location.target.elements.tempHold.value;
+                console.log(location)
+                let tempApi = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;    
+                const data = await getData(tempApi)
+                this.temp = data['main']['temp']
+                this.city = location
+            } catch(err) {
+                console.log(err)
+            }
         }
     }
 });
@@ -80,6 +93,7 @@ async function getTemperature(location) {
     try {
         const tempApi = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`;    
         let data = await this.getData(tempApi)
+        console.log(data['main']['temp'])
         return data['main']['temp']
     } catch(err) {
         console.log(err)
