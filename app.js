@@ -1,4 +1,7 @@
+// require('dotenv').config();
 const skycons = new Skycons({ color: "black" })
+let path = window.location.pathname;
+let page = path.split("/").pop();
 var app = new Vue({
     el: '#app',
     data: {
@@ -16,7 +19,9 @@ var app = new Vue({
         },
         temp: '',
         loc: '',
-        city: ''
+        city: '',
+        localDest: '',
+        localTemp: ''
 
     },
     async mounted() {
@@ -111,6 +116,29 @@ async function getIcons(location) {
     }    
 }
 
+async function yourLocation() {
+    if('geolocation' in navigator) {
+        console.log('geolocation is available')
+        navigator.geolocation.getCurrentPosition(async position => {
+            try {
+
+                const LAT = position.coords.latitude
+                const LONG = position.coords.longitude
+                const reverseGEO = `http://open.mapquestapi.com/geocoding/v1/reverse?key=fxOFHGo5A85KGjqRvuHiARvinVBv4LTo&location=${LAT},${LONG}`;
+                let data = await this.getData(reverseGEO)
+                let yourLocation = data['results'][0]['locations'][0]['adminArea5']
+                app.localDest = yourLocation
+                app.localTemp = await getTemperature(yourLocation)
+            }catch(err) {
+                console.log(err)
+            }    
+        })
+    }
+    else {
+        console.log('geolocation is not available')
+    }
+}
+
 async function getData(api) {
     try{
         //console.log('api is ' + api)
@@ -127,6 +155,10 @@ async function getData(api) {
 }
 
 
+
+if(page === "current_temp.html") {
+    yourLocation()
+}
 
 
 
