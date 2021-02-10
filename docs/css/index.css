@@ -1,14 +1,14 @@
-
+@font-face {
+    font-family: "Snowkybrush";
+    src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
+}
 
 *{
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
 }
-@font-face {
-    font-family: "Snowkybrush";
-    src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
-}
+
 .row {
     row-gap: 20%;
     margin-bottom: 100px;
@@ -229,7 +229,7 @@ nav {
 }
 
 .landing-wrapper canvas {
-    background: #182d47 url(background.jpg) center;
+    background: #182d47 url(../images/background.jpg) center;
     background-size: cover;
     position: absolute;
     top: 0;
