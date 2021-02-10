@@ -29,7 +29,7 @@ app.get('/index.html', (req, res) => {
 })
 
 app.get('/app.js', (req, res) => {
-    res.sendFile(path.join(__dirname, 'app.js'))
+    res.sendFile(path.join(__dirname, '/app.js'))
 })
 
 app.get('/index.css', (req, res) => {
@@ -37,27 +37,27 @@ app.get('/index.css', (req, res) => {
 })
 
 app.get('/skycons.js', (req, res) => {
-    res.sendFile(path.join(__dirname, 'skycons.js'))
+    res.sendFile(path.join(__dirname, '/skycons.js'))
 })
 
 app.get('/stars.js', (req, res) => {
-    res.sendFile(path.join(__dirname, 'stars.js'))
+    res.sendFile(path.join(__dirname, '/stars.js'))
 })
 
 app.get('/search.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'search.html'))
+    res.sendFile(path.join(__dirname, '/search.html'))
 })
 
 app.get('/search.css', (req, res) => {
-    res.sendFile(path.join(__dirname, 'search.css'))
+    res.sendFile(path.join(__dirname, '/search.css'))
 })
 
 app.get('/current_temp.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'current_temp.html'))
+    res.sendFile(path.join(__dirname, '/current_temp.html'))
 })
 
 app.get('/background.jpg', (req, res) => {
-    res.sendFile(path.join(__dirname, 'background.jpg'))
+    res.sendFile(path.join(__dirname, '/background.jpg'))
 })
 
 
