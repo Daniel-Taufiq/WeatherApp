@@ -193,7 +193,7 @@ nav {
 }
 
 .landing-wrapper canvas {
-    background: #182d47 url(../images/background.jpg) center;
+    background: #182d47 url(background.jpg) center;
     background-size: cover;
     position: absolute;
     top: 0;
