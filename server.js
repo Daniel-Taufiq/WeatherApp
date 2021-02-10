@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/index.html'))
 })
 
+app.get('/app.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '/scripts/app.js'))
+})
+
 app.get('/weather/:location', async (req, res) => {
      try {
         //console.log('req.params.location: ', req.params.location)
