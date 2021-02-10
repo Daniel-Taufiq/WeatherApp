@@ -10,55 +10,61 @@ const app = express();
 const port = 8000;
 
 console.log(process.env.OWM_KEY)
-app.use(express.static(__dirname + '/static'));
-app.use('/static', express.static(__dirname + '/static'))
+// app.use(express.static(__dirname + '/static'));
+// app.use('/static', express.static(__dirname + '/static'))
 app.use(bodyParser.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.json())
-app.use("/", express.static('./static/'));
 
 
-console.log(path.join(__dirname, '/index.html'))
+app.use(express.static('./docs'))
+app.use('/css', express.static(__dirname + '/docs/css'))
+app.use('/js', express.static(__dirname + '/docs/scripts/js'))
+app.use('/img', express.static(__dirname + '/docs/images'))
+
+
+
+console.log(path.join(__dirname, '/docs/css'))
 // routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/index.html'))
 })
 
-app.get('/index.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'))
-})
+// app.get('/index.html', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'))
+// })
 
-app.get('/app.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '/app.js'))
-})
+// app.get('/app.js', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/docs/scripts/app.js'))
+// })
 
-app.get('/index.css', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.css'))
-})
+// app.get('/index.css', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/index.css'))
+// })
 
-app.get('/skycons.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '/skycons.js'))
-})
+// app.get('/skycons.js', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/skycons.js'))
+// })
 
-app.get('/stars.js', (req, res) => {
-    res.sendFile(path.join(__dirname, '/stars.js'))
-})
+// app.get('/stars.js', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/stars.js'))
+// })
 
-app.get('/search.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '/search.html'))
-})
+// app.get('/search.html', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/search.html'))
+// })
 
-app.get('/search.css', (req, res) => {
-    res.sendFile(path.join(__dirname, '/search.css'))
-})
+// app.get('/search.css', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/search.css'))
+// })
 
-app.get('/current_temp.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '/current_temp.html'))
-})
+// app.get('/current_temp.html', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/current_temp.html'))
+// })
 
-app.get('/background.jpg', (req, res) => {
-    res.sendFile(path.join(__dirname, '/background.jpg'))
-})
+// app.get('/background.jpg', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/background.jpg'))
+// })
 
 
 app.get('/weather/:location', async (req, res) => {

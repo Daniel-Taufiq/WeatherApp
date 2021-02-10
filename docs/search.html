@@ -3,12 +3,13 @@
     <head>
         <title>Weather</title>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-        <link rel="stylesheet" href="search.css" type="text/css">
+        <link rel="stylesheet" href="/css/search.css" type="text/css">
         <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
     </head>
     <body>
-
         <div class="particles-js">
             <nav>
                 <div class="logo">
@@ -35,14 +36,23 @@
                 </div>
             </nav>
 
-        <div class="box">
-            <div id="app">
-                <div class="tempResult">
-                    {{ localDest }}
+            <div class="box">
+                <form id="app" v-on:submit.prevent="searchCityTemp" method="GET">
+                    <div class="search-box">
+                        <input type="text" class="input" placeholder="Search" name="tempHold">
+                        <button class="search-button">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                    <br></br>
+                    <div class="tempResult">
+                        {{ this.city }}
                         <br>
                         <br>
-                    {{ localTemp === '' ? '' : `${localTemp} °F` }}
-                </div>
+                        {{ temp === '' ? '' : `${temp} °F` }}
+                    </div>
+                </form>
+
             </div>
         </div>
 
@@ -52,8 +62,9 @@
 		    </div>
         </div>
 
-        <script src="app.js"></script>
-        <script src="skycons.js"></script>
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/skycons.js"></script>
+        <!-- <script src="../docs/scripts/stars.js"></script> -->
         <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
     </body>
 </html>
