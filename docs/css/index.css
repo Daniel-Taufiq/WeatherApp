@@ -1,14 +1,14 @@
-@font-face {
-    font-family: "Snowkybrush";
-    src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
-}
+
 
 *{
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
 }
-
+@font-face {
+    font-family: "Snowkybrush";
+    src: url('./Snowkybrush-PKZOm.ttf') format('truetype');
+}
 .row {
     row-gap: 20%;
     margin-bottom: 100px;
