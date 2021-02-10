@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+        <link rel="stylesheet" href="../css/search.css" type="text/css">
+        <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+
+        <div class="particles-js">
+            <nav>
+                <div class="logo">
+                    <h4>Weather</h4>
+                </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="search.html">Search</a>
+                    </li>
+                    <li>
+                        <a href="current_temp.html">Your Temp</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+
+        <div class="box">
+            <div id="app">
+                <div class="tempResult">
+                    {{ localDest }}
+                        <br>
+                        <br>
+                    {{ localTemp === '' ? '' : `${localTemp} °F` }}
+                </div>
+            </div>
+        </div>
+
+        <div id="content-wrapper "> 
+            <div class="landing-wrapper">
+		    	<canvas id="canvas" class="connecting-dots" width="1920" height="1080;"></canvas>
+		    </div>
+        </div>
+
+        <script src="../scripts/app.js"></script>
+        <script src="../scripts/skycons.js"></script>
+        <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+    </body>
+</html>
