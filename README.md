@@ -8,5 +8,5 @@
 
 ### Executing program
 
-* node server.js
-* localhost:8000
+* Terminal: node server.js
+* URL: localhost:8000
