@@ -15,6 +15,7 @@ app.use('/static', express.static(__dirname + '/static'))
 app.use(bodyParser.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.json())
+app.use("/", express.static('./static/'));
 
 
 console.log(path.join(__dirname, '/index.html'))
