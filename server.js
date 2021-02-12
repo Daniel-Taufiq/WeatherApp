@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.get('/weather/:location', async (req, res) => {
      try {
-        console.log('req.params.location: ', req.params.location)
+        console.log('weather req.params.location: ', req.params.location)
         const loc = req.params.location
         const api = `http://api.openweathermap.org/data/2.5/weather?q=${loc}&units=imperial&appid=${owm_key}`
         //console.log('api: ', api)
@@ -46,7 +46,7 @@ app.get('/weather/:location', async (req, res) => {
 
 app.get('/geoLocate/:latlong', async (req, res) => {
     try {
-        console.log('req.params.latlong: ', req.params.latlong)
+        console.log('geolocate req.params.latlong: ', req.params.latlong)
         const latLong = req.params.latlong.split(',')
         const lat = latLong[0]
         console.log('lat: ', lat)

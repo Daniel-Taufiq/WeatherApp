@@ -24,15 +24,17 @@ var app = new Vue({
 
     },
     async mounted() {
-        cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
-        cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
-        for(let i = 0; i < cities1.length; i++) {
-            this.cities1.items.push(await getTemperature(cities1[i]));
-            this.cities2.items.push(await getTemperature(cities2[i]));
-            this.icons1.items.push(await getIcons(cities1[i]))
-            this.icons2.items.push(await getIcons(cities2[i]))
+        if(page === "index.html") {  
+            cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
+            cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
+            for(let i = 0; i < cities1.length; i++) {
+                this.cities1.items.push(await getTemperature(cities1[i]));
+                this.cities2.items.push(await getTemperature(cities2[i]));
+                this.icons1.items.push(await getIcons(cities1[i]))
+                this.icons2.items.push(await getIcons(cities2[i]))
+            }
+            this.setWeatherIcon()
         }
-        this.setWeatherIcon()
     },
     methods: {
         async setWeatherIcon() {
