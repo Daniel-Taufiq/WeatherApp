@@ -10,3 +10,6 @@
 
 * **Terminal**: *node server.js*
 * **URL**: *localhost:8000*
+
+
+![link to site](https://daniel-taufiq.github.io/WeatherApp/)
