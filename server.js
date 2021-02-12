@@ -64,6 +64,7 @@ app.get('/geoLocate/:latlong', async (req, res) => {
         const json = await fetch_response.json()
         res.json(json)
     } catch(err) {
+        console.warn(xhr.responseText)
         console.log(err)
     }
 })
