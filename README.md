@@ -12,4 +12,4 @@
 * **URL**: *localhost:8000*
 
 
-[link to site](https://weather-app-2000.herokuapp.com/)
+[Live Site](https://weather-app-2000.herokuapp.com/)
