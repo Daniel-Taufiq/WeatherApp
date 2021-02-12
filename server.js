@@ -26,9 +26,13 @@ app.use('/img', express.static(__dirname + '/docs/images'))
 
 console.log(path.join(__dirname, '/docs/css'))
 // routes
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/index.html'))
+// })
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'))
-})
+    respondWithData(res, 'text/plain', 'data online')
+});
 
 app.get('/app.js', (req, res) => {
     res.sendFile(path.join(__dirname, '/scripts/app.js'))
@@ -36,11 +40,11 @@ app.get('/app.js', (req, res) => {
 
 app.get('/weather/:location', async (req, res) => {
      try {
-        //console.log('req.params.location: ', req.params.location)
+        console.log('req.params.location: ', req.params.location)
         const loc = req.params.location
         //const api = 'http://api.openweathermap.org/data/2.5/weather?q=Minneapolis&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3';
         const api = `http://api.openweathermap.org/data/2.5/weather?q=${loc}&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3`
-        console.log('api: ', api)
+        //console.log('api: ', api)
         const fetch_response = await fetch(api)
         const json = await fetch_response.json()
         //console.log('json: ', json)
