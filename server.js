@@ -7,7 +7,7 @@ const path = require('path');
 const { response } = require('express');
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const owm_key = process.env.OWM_KEY
 const mq_key = process.env.MQ_KEY
 
