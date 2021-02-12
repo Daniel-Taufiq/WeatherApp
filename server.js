@@ -33,7 +33,6 @@ app.get('/weather/:location', async (req, res) => {
      try {
         console.log('req.params.location: ', req.params.location)
         const loc = req.params.location
-        //const api = 'http://api.openweathermap.org/data/2.5/weather?q=Minneapolis&units=imperial&appid=82d42ea6185f3c0018888ea6bc0444e3';
         const api = `http://api.openweathermap.org/data/2.5/weather?q=${loc}&units=imperial&appid=${owm_key}`
         //console.log('api: ', api)
         const fetch_response = await fetch(api)
