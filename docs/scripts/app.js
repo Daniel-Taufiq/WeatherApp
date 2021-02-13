@@ -24,7 +24,8 @@ var app = new Vue({
 
     },
     async mounted() {
-        if(page === "/" || page === 'index.html') {  
+        
+        if(page === "" || page === 'index.html') {  
             cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
             cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
             for(let i = 0; i < cities1.length; i++) {
