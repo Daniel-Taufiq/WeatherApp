@@ -287,7 +287,15 @@ nav {
     font-size: 50px;
     text-align: center;
     position: relative;
-    top: 150px;
+    top: 130px;
+}
+
+#icon1{
+    position: absolute;
+    top: 440px;
+    left: 245px;
+    height: 100px;
+    width: 100px;
 }
 
 

@@ -20,7 +20,9 @@ var app = new Vue({
         loc: '',
         city: '',
         localDest: '',
-        localTemp: ''
+        localTemp: '',
+        searchIcon: '',
+        yourIcon: ''
 
     },
     async mounted() {
@@ -39,14 +41,10 @@ var app = new Vue({
     },
     methods: {
         async setWeatherIcon() {
-            //skycons.add('icon1', Skycons.Cloudy)
-            // skycons.play()
             console.log(this.icons1.items.length)
             for(let i = 1; i <= this.icons1.items.length; i++) {
                 skycons.add(`icon${i}`, await getSVG(this.icons1.items[i-1]))
                 skycons.add(`icon${3+i}`, await getSVG(this.icons2.items[i-1]))
-                // console.log(`set icon${i} using`, this.icons1.items[i-1])
-                // console.log(`set icon${3+i} using`, this.icons2.items[i-1])
             }
             skycons.play()
         },
@@ -58,7 +56,10 @@ var app = new Vue({
             let response = await fetch(`/weather/${location}`)
             const json = await response.json()
             console.log('json: ', json)
-            // let json = await response.json()
+            skycons.remove("icon1");
+            this.searchIcon = await getIcons(location)
+            skycons.add('icon1', await getSVG(this.searchIcon))
+            skycons.play()
             this.temp = json['main']['temp']
             this.city = location
         }
@@ -125,10 +126,13 @@ async function yourLocation() {
 
                 const LAT = position.coords.latitude
                 const LONG = position.coords.longitude
-
                 let response = await fetch(`/geoLocate/${LAT},${LONG}`)
                 const json = await response.json()
                 let yourLocation = json['results'][0]['locations'][0]['adminArea5']
+                skycons.remove("icon1");
+                this.yourIcon = await getIcons(yourLocation)
+                skycons.add('icon1', await getSVG(this.yourIcon))
+                skycons.play()
                 app.localDest = yourLocation
                 app.localTemp = await getTemperature(yourLocation)
             }catch(err) {
