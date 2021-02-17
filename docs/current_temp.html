@@ -3,7 +3,7 @@
     <head>
         <title>Weather</title>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-        <link rel="stylesheet" href="css/search.css" type="text/css">
+        <link rel="stylesheet" href="css/current_temp.css" type="text/css">
         <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -36,15 +36,25 @@
                 </div>
             </nav>
 
+        
         <div class="box">
             <div id="app">
-                <div class="tempResult">
-                    {{ localDest }}
-                        <br>
-                        <br>
-                    {{ localTemp === '' ? '' : `${localTemp} °F` }}
+                <div v-if="loading">
+                    <div class="hollow-dots-spinner">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
                 </div>
-                <br></br>
+                <div v-if="!loading">
+                    <div class="tempResult">
+                        {{ localDest }}
+                            <br>
+                            <br>
+                        {{ localTemp === '' ? '' : `${localTemp} °F` }}
+                    </div>
+                    <br></br>
+                </div>
                 <canvas id="icon1" width="128" height="128"></canvas>
             </div>
         </div>

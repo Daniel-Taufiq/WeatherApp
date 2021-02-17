@@ -22,11 +22,11 @@ var app = new Vue({
         localDest: '',
         localTemp: '',
         searchIcon: '',
-        yourIcon: ''
-
+        yourIcon: '',
+        loading: true
     },
     async mounted() {
-        
+        this.loading = true
         if(page === "" || page === 'index.html') {  
             cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
             cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
@@ -132,9 +132,11 @@ async function yourLocation() {
                 skycons.remove("icon1");
                 this.yourIcon = await getIcons(yourLocation)
                 skycons.add('icon1', await getSVG(this.yourIcon))
+                app.loading = false
                 skycons.play()
                 app.localDest = yourLocation
                 app.localTemp = await getTemperature(yourLocation)
+                console.log("loading is now: ", app.loading)
             }catch(err) {
                 console.log(err)
             }    
