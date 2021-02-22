@@ -107,9 +107,10 @@ async function getSVG(icon) {
     }
 }
 async function getTemperature(location) {
-    let val = fetch('/weather', location)
+    let weatherApi = `${apiURL}/weather/${location}`
+    //let val = fetch('/weather', location)
     console.log('calling backend')
-    let response = await fetch(`/weather/${location}`)
+    let response = await fetch(weatherApi)
     const json = await response.json()
     console.log('json: ', json)
     return json['main']['temp']  
@@ -136,7 +137,8 @@ async function yourLocation() {
 
                 const LAT = position.coords.latitude
                 const LONG = position.coords.longitude
-                let response = await fetch(`/geoLocate/${LAT},${LONG}`)
+                let weatherApi = `${apiURL}/geoLocate/`
+                let response = await fetch(`${weatherApi}${LAT},${LONG}`)
                 const json = await response.json()
                 let yourLocation = json['results'][0]['locations'][0]['adminArea5']
                 skycons.remove("icon1");
