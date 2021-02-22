@@ -117,9 +117,10 @@ async function getTemperature(location) {
 
 async function getIcons(location) {
     try {
-        let val = fetch('/weather', location)
+        let weatherApi = `${apiURL}/weather/${location}`
+        let val = fetch(weatherApi)
         console.log('calling backend')
-        let response = await fetch(`/weather/${location}`)
+        let response = await fetch(weatherApi)
         const json = await response.json()
         return json['weather'][0]
     } catch(err) {
