@@ -107,7 +107,7 @@ async function getSVG(icon) {
     }
     else if(icon['description'] === 'shower rain' || icon['description'] === 'rain' || icon['description'] === 'thunderstorm' 
     || icon['description'] == 'mist' || icon['description'] === 'moderate rain' || icon['description'] === 'light rain'
-    || icon['description'] === 'drizzle') {
+    || icon['description'] === 'drizzle' || icon['description'] === 'light intensity drizzle') {
         return Skycons.RAIN
     }
     else if(icon['description'] === 'snow' || icon['description'] === 'light snow') {
