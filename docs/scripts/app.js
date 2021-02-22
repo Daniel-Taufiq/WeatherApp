@@ -1,70 +1,79 @@
 const skycons = new Skycons({ color: "black" })
 let path = window.location.pathname;
 let page = path.split("/").pop();
-var app = new Vue({
-    el: '#app',
-    data: {
-        cities1: {
-            items: []
+let app;
+let apiURL = 'https://weather-app-2000.herokuapp.com'
+function init() {
+    app = new Vue({
+        el: '#app',
+        data: {
+            cities1: {
+                items: []
+            },
+            cities2: {
+                items: []
+            },
+            icons1: {
+                items: []
+            },
+            icons2: {
+                items: []
+            },
+            temp: '',
+            loc: '',
+            city: '',
+            localDest: '',
+            localTemp: '',
+            searchIcon: '',
+            yourIcon: '',
+            loading: true
         },
-        cities2: {
-            items: []
-        },
-        icons1: {
-            items: []
-        },
-        icons2: {
-            items: []
-        },
-        temp: '',
-        loc: '',
-        city: '',
-        localDest: '',
-        localTemp: '',
-        searchIcon: '',
-        yourIcon: '',
-        loading: true
-    },
-    async mounted() {
-        this.loading = true
-        if(page === "" || page === 'index.html') {  
-            cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
-            cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
-            for(let i = 0; i < cities1.length; i++) {
-                this.cities1.items.push(await getTemperature(cities1[i]));
-                this.cities2.items.push(await getTemperature(cities2[i]));
-                this.icons1.items.push(await getIcons(cities1[i]))
-                this.icons2.items.push(await getIcons(cities2[i]))
+        async mounted() {
+            if(page === "" || page === 'index.html') {  
+                cities1 = ['Minneapolis', 'Hong Kong', 'Istanbul']
+                cities2 = [ 'London', 'Ulaanbaatar', 'Tokyo']
+                for(let i = 0; i < cities1.length; i++) {
+                    this.cities1.items.push(await getTemperature(cities1[i]));
+                    this.cities2.items.push(await getTemperature(cities2[i]));
+                    this.icons1.items.push(await getIcons(cities1[i]))
+                    this.icons2.items.push(await getIcons(cities2[i]))
+                }
+                this.setWeatherIcon()
             }
-            this.setWeatherIcon()
-        }
-    },
-    methods: {
-        async setWeatherIcon() {
-            console.log(this.icons1.items.length)
-            for(let i = 1; i <= this.icons1.items.length; i++) {
-                skycons.add(`icon${i}`, await getSVG(this.icons1.items[i-1]))
-                skycons.add(`icon${3+i}`, await getSVG(this.icons2.items[i-1]))
-            }
-            skycons.play()
         },
-        async searchCityTemp(location) {
-            location = location = location.target.elements.tempHold.value;
-            // console.log(location = location.target.elements.tempHold.value)
-
-            console.log('calling backend')
-            let response = await fetch(`/weather/${location}`)
-            const json = await response.json()
-            console.log('json: ', json)
-            skycons.remove("icon1");
-            this.searchIcon = await getIcons(location)
-            skycons.add('icon1', await getSVG(this.searchIcon))
-            skycons.play()
-            this.temp = json['main']['temp']
-            this.city = location
+        methods: {
+            async setWeatherIcon() {
+                console.log(this.icons1.items.length)
+                for(let i = 1; i <= this.icons1.items.length; i++) {
+                    skycons.add(`icon${i}`, await getSVG(this.icons1.items[i-1]))
+                    skycons.add(`icon${3+i}`, await getSVG(this.icons2.items[i-1]))
+                }
+                skycons.play()
+            },
+            async searchCityTemp(location) {
+                location = location = location.target.elements.tempHold.value;
+                // console.log(location = location.target.elements.tempHold.value)
+    
+                console.log('calling backend')
+                let weatherApi = `${apiURL}/weather/${location}`
+                console.log('weatherApi: ', weatherApi)
+                let response = await fetch(weatherApi, {
+                    mode: 'cors',
+                    credentials: 'include'
+                })
+                console.log(response)
+                const json = await response.json()
+                console.log('json: ', json)
+                skycons.remove("icon1");
+                this.searchIcon = await getIcons(location)
+                skycons.add('icon1', await getSVG(this.searchIcon))
+                skycons.play()
+                this.temp = json['main']['temp']
+                this.city = location
+            }
         }
-    }
-});
+    });
+}
 
 async function getSVG(icon) {
     //https://openweathermap.org/weather-conditions

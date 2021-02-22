@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 const bodyParser = require('body-parser');
 const path = require('path');
 const { response } = require('express');
+let cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -15,7 +16,7 @@ const mq_key = process.env.MQ_KEY
 app.use(bodyParser.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.json())
-
+app.use(cors());
 
 app.use(express.static('./docs'))
 app.use('/css', express.static(__dirname + '/docs/css'))
@@ -28,6 +29,10 @@ app.get('/', (req, res) => {
     respondWithData(res, 'text/plain', 'data online')
 });
 
+app.all('*', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://weather-app-2000.herokuapp.com");
+    next();
+});
 
 app.get('/weather/:location', async (req, res) => {
      try {
