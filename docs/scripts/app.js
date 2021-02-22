@@ -26,7 +26,8 @@ function init() {
             localTemp: '',
             searchIcon: '',
             yourIcon: '',
-            loading: true
+            loading: true,
+            loadIndex: true
         },
         async mounted() {
             if(page === "" || page === 'index.html') {  
@@ -38,6 +39,7 @@ function init() {
                     this.icons1.items.push(await getIcons(cities1[i]))
                     this.icons2.items.push(await getIcons(cities2[i]))
                 }
+                
                 this.setWeatherIcon()
             }
         },
@@ -73,6 +75,14 @@ function init() {
             }
         }
     });
+    startHeroku();
+}
+
+async function startHeroku(){
+    await fetch(apiURL)
+    console.log('loadIndex: ', app.loadIndex, "color: red;")
+    app.loadIndex = false
+    console.log('loadIndex: ', app.loadIndex, "color: red;")
 }
 
 async function getSVG(icon) {
@@ -112,8 +122,12 @@ async function getTemperature(location) {
     console.log('calling backend')
     let response = await fetch(weatherApi)
     const json = await response.json()
+    console.log(this.loadIndex)
+    this.loadIndex = false;
+    console.log(this.loadIndex)
     console.log('json: ', json)
-    return json['main']['temp']  
+    
+    return json['main']['temp']
 }
 
 async function getIcons(location) {
@@ -196,6 +210,7 @@ const navSlide = () => {
         burger.classList.toggle('toggle');
     });
 }
+
 
 if(page === "current_temp.html") {
     yourLocation()

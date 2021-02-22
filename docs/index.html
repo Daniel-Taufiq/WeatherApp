@@ -8,65 +8,72 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <script src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
+        <script src="scripts/app.js" defer></script>
     </head>
     <body onload="init()">
-        <div class="particles-js">
-            <nav>
-                <div class="logo">
-                    <h4>Weather</h4>
-                </div>
-                <ul class="nav-links">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="search.html">Search</a>
-                    </li>
-                    <li>
-                        <a href="current_temp.html">Your Temp</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </nav>
-    
+        <div class="particles-js">    
             <div id="app">
-                <div id="grid-container">
-                    <div class="box">
-                        <div id="temps"> {{ cities1.items[0] }}°F </div>
-                        <div id="cityName">Minneapolis</div>
-                        <canvas id="icon1" width="128" height="128"></canvas>
-                    </div>
-                    <div class="box">
-                        <div id="temps"> {{ cities1.items[1] }}°F </div>
-                        <div id="cityName">Hong Kong</div>
-                        <canvas id="icon2" width="128" height="128"></canvas>
-                    </div>
-                    <div class="box">
-                        <div id="temps"> {{ cities1.items[2] }}°F </div>
-                        <div id="cityName">Instanbul</div>
-                        <canvas id="icon3" width="128" height="128"></canvas>
-                    </div>
-                    <div class="box">
-                        <div id="temps"> {{ cities2.items[0] }}°F </div>
-                        <div id="cityName">London</div>
-                        <canvas id="icon4" width="128" height="128"></canvas>
-                    </div>
-                    <div class="box">
-                        <div id="temps"> {{ cities2.items[1] }}°F </div>
-                        <div id="cityName">Ulaanbaatar</div>
-                        <canvas id="icon5" width="128" height="128"></canvas>
-                    </div>
-                    <div class="box">
-                        <div id="temps"> {{ cities2.items[2] }}°F </div>
-                        <div id="cityName">Tokyo</div>
-                        <canvas id="icon6" width="128" height="128"></canvas>
+                <div v-if="loadIndex">
+                    <div class="loader-container">
+                        <div class="loader"></div>
+                    </div>  
+                </div>
+                <div v-else-if="!loadIndex">
+                    <nav>
+                        <div class="logo">
+                            <h4>Weather</h4>
+                        </div>
+                        <ul class="nav-links">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="search.html">Search</a>
+                            </li>
+                            <li>
+                                <a href="current_temp.html">Your Temp</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                        </ul>
+                        <div class="burger">
+                            <div class="line1"></div>
+                            <div class="line2"></div>
+                            <div class="line3"></div>
+                        </div>
+                    </nav>
+                    <div id="grid-container">
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[0] }}°F </div>
+                            <div id="cityName">Minneapolis</div>
+                            <canvas id="icon1" width="128" height="128"></canvas>
+                        </div>
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[1] }}°F </div>
+                            <div id="cityName">Hong Kong</div>
+                            <canvas id="icon2" width="128" height="128"></canvas>
+                        </div>
+                        <div class="box">
+                            <div id="temps"> {{ cities1.items[2] }}°F </div>
+                            <div id="cityName">Instanbul</div>
+                            <canvas id="icon3" width="128" height="128"></canvas>
+                        </div>
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[0] }}°F </div>
+                            <div id="cityName">London</div>
+                            <canvas id="icon4" width="128" height="128"></canvas>
+                        </div>
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[1] }}°F </div>
+                            <div id="cityName">Ulaanbaatar</div>
+                            <canvas id="icon5" width="128" height="128"></canvas>
+                        </div>
+                        <div class="box">
+                            <div id="temps"> {{ cities2.items[2] }}°F </div>
+                            <div id="cityName">Tokyo</div>
+                            <canvas id="icon6" width="128" height="128"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,6 +84,16 @@
 		    	<canvas id="canvas" class="connecting-dots" width="1920" height="1080;"></canvas>
 		    </div>
         </div>
+
+          
+        
+
+
+        <!-- <script>
+            $(window).on("load",function(){
+                $(".loader-container").fadeOut(1000);
+            });
+        </script> -->
 
         <script>
             var coll = document.getElementsByClassName("box");
@@ -95,7 +112,6 @@
             }
         </script>
 
-        <script src="scripts/app.js"></script>
         <script src="scripts/skycons.js"></script>
         <script src="scripts/stars.js"></script>
         <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
