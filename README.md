@@ -1,7 +1,5 @@
 # Weather App
 
-*work-in-progress*
-
 ### Installing
 
 * *npm install*
