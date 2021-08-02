@@ -107,7 +107,8 @@ async function getSVG(icon) {
     }
     else if(icon['description'] === 'shower rain' || icon['description'] === 'rain' || icon['description'] === 'thunderstorm' 
     || icon['description'] == 'mist' || icon['description'] === 'moderate rain' || icon['description'] === 'light rain'
-    || icon['description'] === 'drizzle' || icon['description'] === 'light intensity drizzle') {
+    || icon['description'] === 'drizzle' || icon['description'] === 'light intensity drizzle' ||
+    icon['description'] === 'light intensity shower rain' || icon['description'] === 'heavy intensity rain') {
         return Skycons.RAIN
     }
     else if(icon['description'] === 'snow' || icon['description'] === 'light snow') {
@@ -119,16 +120,13 @@ async function getSVG(icon) {
 }
 async function getTemperature(location) {
     let weatherApi = `${apiURL}/weather/${location}`
-    //let val = fetch('/weather', location)
-    console.log('calling backend')
-    let response = await fetch(weatherApi)
-    const json = await response.json()
-    console.log(this.loadIndex)
-    this.loadIndex = false;
-    console.log(this.loadIndex)
-    console.log('json: ', json)
-    
-    return json['main']['temp']
+
+    return $.getJSON(weatherApi)
+        .then(data => {
+            this.loadIndex = false;
+            console.log(data['main']['temp'])
+            return data['main']['temp']
+        })
 }
 
 async function getIcons(location) {
